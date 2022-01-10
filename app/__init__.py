@@ -9,13 +9,13 @@ def upload():
 
 
 @app.get('/files')
-def get_files():
-    return utils.list_files()
+def list_files():
+    return utils.get_files()
   
 
 @app.get('/files/<extension>')
-def get_files_extension(extension):
-    return utils.list_files_by_extension(extension)
+def list_files_by_extension(extension):
+    return utils.get_files_extension(extension)
 
 
 @app.get('/download/<file_name>')

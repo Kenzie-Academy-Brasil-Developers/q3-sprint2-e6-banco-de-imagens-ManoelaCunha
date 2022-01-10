@@ -31,16 +31,16 @@ def save_image():
     return {"message": "Extensão de arquivo não suportada!"}, 415
 
 
-def list_files():
+def get_files():
     list_files = [', '.join(os.listdir(f'{FILES_DIRECTORY}/{extension}')) for extension in ALLOWED_EXTENSIONS]
 
     return jsonify(list_files), 200
 
 
-def list_files_by_extension(extension):
-    for allowed_extension in ALLOWED_EXTENSIONS:
+def get_files_extension(extension):
+    for file_extension in ALLOWED_EXTENSIONS:
 
-        if allowed_extension == extension:
+        if file_extension == extension:
             list_files_by_extension = os.listdir(f'{FILES_DIRECTORY}/{extension}')
             return jsonify(list_files_by_extension), 200
 
